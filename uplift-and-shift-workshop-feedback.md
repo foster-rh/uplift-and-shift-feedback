@@ -248,17 +248,6 @@ The workshop uses a modern multi-cluster architecture demonstrating hybrid VM an
        5. Monitor migration progress and network cutover
        6. Validate VM functionality on destination cluster
        7. Test rollback scenario
-     - **Advanced Scenarios:**
-       - Bulk migration of multiple VMs
-       - Migration across availability zones
-       - Migrating VMs with attached persistent storage
-       - Network traffic redirection during migration (DNS/load balancer updates)
-       - Cluster upgrade via VM migration (evacuate old cluster, migrate to new)
-   - **Tools Demonstrated:**
-     - Migration Toolkit for Virtualization (MTV)
-     - OpenShift Virtualization live migration APIs
-     - Multi-cluster networking (Submariner, service mesh)
-     - Storage replication (FSx SnapMirror, EBS snapshots)
    - **Rationale:**
      - Critical for DR planning and business continuity
      - Enables cluster upgrades without application downtime
