@@ -85,7 +85,7 @@ Irrelevant - so basic and noddy.
 
 - **Feedback:**
 
-Kiali - no one uses this. What are we doing with service mesh 2 and Kiali? Bizarre.
+Kiali - no one uses this. What are we doing with service mesh 2 and Kiali?
 
 
 ### Proposed New Modules 
@@ -96,7 +96,7 @@ The following **7 new modules** are recommended to address enterprise-critical t
 |----------|-------|------------------|----------|
 | **Module 01** | Multi-Cluster GitOps Application Deployment | ACM, ArgoCD, ApplicationSets, Hybrid VMs & Containers, OpenShift Lightspeed | **Critical** |
 | **Module 02** | AWS FSx Storage Integration | FSx for ONTAP/Windows, CSI Driver, Multi-AZ HA, GitOps | **High** |
-| **Module 03** | Enterprise Storage, Backup & Restore | NetApp, S3, OADP, Velero, Cross-cluster Migration | **Critical** |
+| **Module 03** | Enterprise Storage, Backup & Restore | NetApp, S3, Cross-cluster Migration | **Critical** |
 | **Module 04** | Live VM Migration Between Clusters | MTV, Cross-cluster Migration, Zero-downtime | **High** |
 | **Module 05** | Connectivity Link DNS Policy & Dynamic Routing | Connectivity Link, Route 53, Network Observability Operator | **Critical** |
 | **Module 06** | User Defined Networking (UDN) | BGP, AWS Route Server, Custom Subnetting, Transit Gateway, Network Observability | **High** |
@@ -112,24 +112,47 @@ The following **7 new modules** are recommended to address enterprise-critical t
 
 ---
 
-A new application consisting of a legacy VM and some modernized container components.
+## New Lab Environment Architecture
 
-3 clusters: ACM on hub cluster where appsets are deployed including a mixture of VMs and containers.
+The workshop uses a modern multi-cluster architecture demonstrating hybrid VM and container workloads:
 
-2 spoke clusters with the same app namespace connected by services interconnect.
+- **Application:** Legacy VM and modernized container components deployed as a single application
+- **Hub Cluster:** ACM (Advanced Cluster Management) manages GitOps ApplicationSets deploying hybrid workloads
+- **Spoke Clusters:** 2 ROSA clusters (dev-spoke-1 and dev-spoke-2) with shared application namespace
+- **Cross-Cluster Networking:** Services Interconnect enables transparent VM-to-container communication
+- **Traffic Management:** Connectivity Link manages DNS policies for API Gateway and Ambient Service Mesh Envoy Gateway
 
-Connectivity Link deployed to manage policies around API Gateway and Ambient Service Mesh Envoy Gateway.
 ---
 
 ### Content Improvements - Detailed Breakdown
 
-1. Deploy our application on the ACM hub cluster which is integrated with GitOps - using appsets - new application deploys to both spoke clusters. It's a mixture of VMs and containers.
-
-LAB: Deploy the appsets - confirm that app appears in spoke GitOps, VM on one side, containers on both sides including a Windows VM.
-
-Verify Ambient Service Mesh, Connectivity Link, and Services Interconnect components all deploy.
-
-Provide the users with prompts for OpenShift Lightspeed to help query and understand the resources they have deployed on the clusters and what they do.
+1. **Multi-Cluster GitOps Application Deployment with ACM**
+   - **Topic:** Deploy hybrid VM/container application across multiple clusters using ACM and GitOps ApplicationSets
+   
+   - **Content to Cover:**
+     - Advanced Cluster Management (ACM) hub and spoke architecture
+     - GitOps ApplicationSets for multi-cluster deployment
+     - Hybrid workload orchestration (VMs and containers)
+     - OpenShift Lightspeed AI assistance for resource exploration
+     - Cross-cluster application visibility and management
+   
+   - **Hands-On Exercise:**
+     - Deploy application on ACM hub cluster integrated with GitOps
+     - Create ApplicationSets that deploy to both spoke clusters
+     - Deploy hybrid workloads: VMs on dev-spoke-1, containers on both clusters
+     - Include a Windows VM in the deployment
+     - Verify Ambient Service Mesh components deploy correctly
+     - Verify Connectivity Link components deploy correctly
+     - Verify Services Interconnect components deploy correctly
+     - Use OpenShift Lightspeed prompts to query and understand deployed resources
+     - Explore cluster topology and application dependencies
+   
+   - **Rationale:**
+     - Demonstrates enterprise multi-cluster management patterns
+     - Shows VMs as first-class citizens in GitOps workflows
+     - Proves VMs and containers can be managed with same tooling
+     - OpenShift Lightspeed provides AI-assisted learning experience
+     - Sets foundation for subsequent modules (storage, migration, networking)
 
 2. **Add Module on AWS FSx Storage Integration for VMs**
    - **Topic:** Using Amazon FSx as persistent storage for VMs running on OpenShift Virtualization in ROSA.
