@@ -112,7 +112,7 @@ The following **7 new modules** are recommended to address enterprise-critical t
 
 ---
 
-A new application consisting of a legacy VM and some modernised container components.
+A new application consisting of a legacy VM and some modernized container components.
 
 3 clusters: ACM on hub cluster where appsets are deployed including a mixture of VMs and containers.
 
@@ -152,7 +152,7 @@ Provide the users with prompts for OpenShift Lightspeed to help query and unders
      - Test VM live migration with FSx-backed storage
      - Implement automated snapshots and backup policies
      - Measure storage performance (IOPS, throughput, latency)
-     Update our app to use FSx
+     - Update our app to use FSx
 
    - **Advanced Scenarios:**
      - Multi-tenant storage isolation using FSx SVMs (Storage Virtual Machines)
@@ -181,7 +181,7 @@ Provide the users with prompts for OpenShift Lightspeed to help query and unders
    - **Hands-On Exercise - Real Migration Scenario:**
      - **Source Environment:** VM running on RHEL box in AWS VPC with NetApp storage
      - **Workflow:**
-       1. Create VM snapshots using NetApp on spoke one to spoke 2.
+       1. Create VM snapshots using NetApp on spoke 1 to spoke 2.
        2. Export snapshots and push to AWS S3 bucket
        3. Configure S3 bucket policies and lifecycle management
        4. Import snapshot data from S3 to OpenShift Virtualization on ROSA on spoke 2.
