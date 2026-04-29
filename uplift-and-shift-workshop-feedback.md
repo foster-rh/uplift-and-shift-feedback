@@ -13,9 +13,9 @@
 
 The "UpLift and Shift" workshop generates strong initial engagement and customer interest in OpenShift Virtualization on ROSA. However, the current content fails to deliver on the promise. We are attracting enterprise customers who need production-ready solutions for VM migration and hybrid workloads, but we're providing them with basic demonstrations that don't address their real-world requirements.
 
-We need to show them we can deliver on what they are used to traditional VM environemtns - networking \ DR \ storage = CUDN BGP FSx Live migrations netapp ontap.
+We need to show them we can deliver on what they are used to in traditional VM environments - networking, DR, storage = CUDN, BGP, FSx, live migrations, NetApp ONTAP.
 
-We need to excite them about containers and VMS running side by side using modern devops process and infrastructure = ambient service mesh, gateway API, connectivity link and dynamic DNS policies, services interconnect and multi cluster gitops with ACM.
+We need to excite them about containers and VMs running side by side using modern DevOps processes and infrastructure = ambient service mesh, gateway API, connectivity link and dynamic DNS policies, services interconnect and multi-cluster GitOps with ACM.
 
 ---
 
@@ -40,7 +40,7 @@ This section should really go through what is an operator - then look specifical
 
 - **Feedback:**
 
-This section is relevant - need some basic click ops section covering lots of bits of the UI and metrics and connecting ot a VM etc. Dont need to worry about gitops here just want customers to get use to using the UI to manage a VM probably include creating vms for OCI images here in some sort of catalog.
+This section is relevant - need some basic click ops section covering lots of bits of the UI and metrics and connecting to a VM etc. Don't need to worry about GitOps here, just want customers to get used to using the UI to manage a VM. Probably include creating VMs from OCI images here in some sort of catalog.
 
 #### Module 03: Declarative IaC for Automating Virtual Machine Creation
 - **Topics:**
@@ -50,7 +50,7 @@ This section is relevant - need some basic click ops section covering lots of bi
 
 - **Feedback:**
 
-repetative adds no real value.
+Repetitive - adds no real value.
 
 #### Module 04: Simplified Configuration for Load Balancing
 - **Topics:**
@@ -60,7 +60,7 @@ repetative adds no real value.
 
 - **Feedback:**
 
-We can do so much better see suggested modules later
+We can do so much better - see suggested modules later.
 
 #### Module 05: Network Egress Firewall
 - **Topics:**
@@ -70,7 +70,7 @@ We can do so much better see suggested modules later
 
 - **Feedback:**
 
-irrelevant - so basic and noddy
+Irrelevant - so basic and noddy.
 
 #### Module 06: Istio Ambient Mesh Traffic Management for Virtual Machines
 - **Topics:**
@@ -85,7 +85,7 @@ irrelevant - so basic and noddy
 
 - **Feedback:**
 
-Kiali - no one uses this what are we doing with service mesh 2 and kiali bizar.
+Kiali - no one uses this. What are we doing with service mesh 2 and Kiali? Bizarre.
 
 
 ### Proposed New Modules 
@@ -114,27 +114,27 @@ The following **7 new modules** are recommended to address enterprise-critical t
 
 A new application consisting of a legacy VM and some modernised container components.
 
-3 clusters ACM on hub cluster where appsets are deployed including a mixtrue of VMS and containers.
+3 clusters: ACM on hub cluster where appsets are deployed including a mixture of VMs and containers.
 
 2 spoke clusters with the same app namespace connected by services interconnect.
 
-connectivity link deployed to manage policies around api gateway and ambient service mesh envoy gateway.
+Connectivity Link deployed to manage policies around API Gateway and Ambient Service Mesh Envoy Gateway.
 ---
 
 ### Content Improvements - Detailed Breakdown
 
-1. Deploy our application on the ACM hub cluster which is integrated with gitops - using appsets - new application deploys to both spoke clusters. its a mixture of VMS and containers.
+1. Deploy our application on the ACM hub cluster which is integrated with GitOps - using appsets - new application deploys to both spoke clusters. It's a mixture of VMs and containers.
 
-LAB deploy the appssets - confirm that app appears in spoke gitops, VM on one side containers on both sides including a windwos VM.
+LAB: Deploy the appsets - confirm that app appears in spoke GitOps, VM on one side, containers on both sides including a Windows VM.
 
-Verify ambient services mesh, connectivity link, and services interconnect components all deploy.
+Verify Ambient Service Mesh, Connectivity Link, and Services Interconnect components all deploy.
 
-Provide the users with prompts for openshift lightspeed to help query and understand the resources they have deployed on the clusters and what they do.
+Provide the users with prompts for OpenShift Lightspeed to help query and understand the resources they have deployed on the clusters and what they do.
 
 2. **Add Module on AWS FSx Storage Integration for VMs**
    - **Topic:** Using Amazon FSx as persistent storage for VMs running on OpenShift Virtualization in ROSA.
 
-   Move our VMS over to FSX via gitops and the appsets.
+   Move our VMs over to FSx via GitOps and the appsets.
 
    - **Content to Cover:**
      - Amazon FSx storage types and use cases (FSx for NetApp ONTAP, FSx for Windows File Server, FSx for Lustre)
@@ -169,7 +169,7 @@ Provide the users with prompts for openshift lightspeed to help query and unders
 3. **Add Module on Enterprise Storage, Backup & Restore**
    - **Topic:** Real-world VM backup, disaster recovery, and migration from traditional infrastructure to OpenShift Virtualization.
 
-   The VM in our deployed application suffers a crtiical failure - lets restore it from back to the other cluster and remove it on cluster spoke 1.
+   The VM in our deployed application suffers a critical failure - let's restore it from backup to the other cluster and remove it on cluster spoke 1.
 
    - **Content to Cover:**
      - Enterprise storage integration (NetApp, Ceph, AWS EBS/EFS)
@@ -277,7 +277,7 @@ Provide the users with prompts for openshift lightspeed to help query and unders
           - Configure geographic routing rules
           - Add latency-based routing policies
           - Test traffic shifting in real-time
-       4. **Test and Visualize with Network Observability Operator:**
+       4. **Visualize with Network Observability Operator:**
           - Deploy Network Observability Operator on both clusters
           - Configure flow collection for application namespace
           - View traffic flows between clusters in real-time
@@ -305,13 +305,13 @@ Provide the users with prompts for openshift lightspeed to help query and unders
      - Configure UDN for VM workloads
      - Set up BGP peering with AWS Route Server
      - Demonstrate VM-to-VPC connectivity through advertised routes
-     - Test traffic flow between VMs in custom subnets and AWS services.
-     - observe in network observability operator
+     - Test traffic flow between VMs in custom subnets and AWS services
+     - Observe in Network Observability Operator
    - **Rationale:** Advanced networking is critical for enterprise VM migrations, especially for workloads requiring custom IP schemes or hybrid cloud connectivity
 
 7. **Migration Planning Module**
    - Add a pre-migration assessment section
    - Include capacity planning and cost analysis tools
-   - Provide migration readiness checklist.
+   - Provide migration readiness checklist
    - Maybe some TCO analysis in here?
 
